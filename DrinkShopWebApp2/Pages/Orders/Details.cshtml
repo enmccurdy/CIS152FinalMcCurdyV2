@@ -1,0 +1,46 @@
+﻿@page
+@model DrinkShopWebApp2.Pages.Orders.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<hr />
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.OrderDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.OrderDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.OrderFilled)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.OrderFilled)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.OrderTotal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.OrderTotal)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.Customer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.Customer.FirstName)
+        </dd>
+    </dl>
+</div>
+@* to below <div> element start tag add boostrap class="mt-2" - to add margin 2 to <div>
+    to create space between button and display area.
+    Add boostrap btn class/color to <a> element start tag. *@
+<div class="mt-2">
+    <a asp-page="./Edit" asp-route-id="@Model.Order?.OrderId" class="btn btn-info">Edit</a> |
+    <a asp-page="./Index" class="btn btn-success">Back to List</a>
+</div>

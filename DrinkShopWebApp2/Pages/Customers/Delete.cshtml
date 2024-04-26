@@ -1,0 +1,53 @@
+﻿@page
+@model DrinkShopWebApp2.Pages.Customers.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+<hr />
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer.Phone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Customer.Phone)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        @* wrap below button(s) in a <div> element and add boostrap class="mt-2" - to add
+        margin 2 to create space between button and display area. *@
+        <div class="mt-2">
+            <input type="hidden" asp-for="Customer.CustomerId" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            @* can add bootstrap 'btn' class and coloring ex. 'btn-primary' to the Create button below
+            just add to <a> start tag - class="btn btn-primary" 'btn-info' 'btn-success'
+            *@
+            <a asp-page="./Index" class="btn btn-success">Back to List</a>
+        </div>
+    </form>
+</div>

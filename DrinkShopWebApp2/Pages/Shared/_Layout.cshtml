@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DrinkShopWebApp2</title>
+    <!-- Spring 2024 - CIS 152 Data Structures Final Project -->
+    <!-- author: Elizabeth McCurdy -->
+    <!-- Created date: 4/2024 - v2 -->
+    <!-- Course: CIS 152 Data Structures -->
+    <!-- Version: 2.0 -->
+    <!-- OS: Windows 11 -->
+    <!-- IDE: Visual Studio 2022 Community -->
+    <!-- Copyright: This is my own original work based on specifications
+        issued by our instructor. -->
+    <!-- Description: CIS 152 Data Structures Final Project - ASP.NET Core Web App Assignment:
+
+        Input: User form inputs for drink order.
+        Output: Index page View - displays webpage for user to interact
+        with and additional web pages used to display the results of the
+        user's inputs and Model/Class details.
+    -->
+    <!-- Academic Honesty: I attest that this is my original work.  I have
+        not used unauthorized source code, either modified or unmodified.
+        I have not given other fellow student(s) access to my program.
+    -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/DrinkShopWebApp2.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <a name="top" id="top"></a>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">DrinkShopWebApp2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        </li>
+                        @* <li class="nav-item">
+                            <a class="nav-link" style="color: darkblue;" asp-area="" asp-controller="Drinks" asp-action="Index">Drinks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: darkblue;" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: darkblue;" asp-area="" asp-controller="Customers" asp-action="Index">Customers</a>
+                        </li> *@
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: darkblue;" asp-area="" asp-page="/Drinks/Index">Drinks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: darkblue;" asp-area="" asp-page="/Orders/Index">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="color: darkblue;" asp-area="" asp-page="/Customers/Index" >Customers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="myContainerDiv">
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    </div> <!-- end <div class="myContainerDiv"> -->
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            @* &copy; 2024 - DrinkShopWebApp2 - <a asp-area="" asp-page="/Privacy">Privacy</a> *@
+            @* &copy; 2024 - CIS152FinalMcCurdyV2 - DrinkShopWebApp2 <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+            @* &copy; 2024 - CIS 152 Final Project McCurdy V2 - DrinkShopWebApp2<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> *@
+            @* <p>&copy; 2024 - CIS 152 Final Project McCurdy V2 - DrinkShopWebApp2<a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a></p> *@
+            <p>&copy; 2024 - CIS 152 Final Project McCurdy V2 - DrinkShopWebApp2<a asp-area="" asp-page="/Privacy">Privacy</a></p>
+            <p class="edu-legal">educational website - not intended for commercial use</p>
+            <p><a href="#top">Back to top of page</a></p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

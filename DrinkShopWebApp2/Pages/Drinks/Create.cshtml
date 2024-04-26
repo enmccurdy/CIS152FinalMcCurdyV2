@@ -1,0 +1,98 @@
+﻿@page
+@model DrinkShopWebApp2.Pages.Drinks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create New Drink</h1>
+<hr />
+
+<h4>Drink</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Drink.DrinkName" class="control-label"></label>
+                @* <select asp-for="Drink.DrinkName" class="form-control"></select> *@
+                <select asp-for="Drink.DrinkName" class="form-control">
+                    <option value="">Select Drink Name</option>
+                    @* <option value="DrinkName.WhiteChocolateMocha">White Chocolate Mocha</option>
+                    <option value="DrinkName.Mocha">Mocha</option>
+                    <option value="DrinkName.Latte">Latte</option>
+                    <option value="DrinkName.Americano">Americano</option>
+                    <option value="DrinkName.IcedTea">Iced Tea</option>
+                    <option value="DrinkName.GreenTea">GreenTea</option>
+                    <option value="DrinkName.ChaiTea">Chai Tea</option>
+                    <option value="DrinkName.VanillaItalianSoda">Vanilla Italian Soda</option>
+                    <option value="DrinkName.StrawberryItalianSoda">Strawberry Italian Soda</option>
+                    <option value="DrinkName.CherryItalianSoda">Cherry Italian Soda</option> *@
+                    <option value="WhiteChocolateMocha">White Chocolate Mocha</option>
+                    <option value="Mocha">Mocha</option>
+                    <option value="Latte">Latte</option>
+                    <option value="Americano">Americano</option>
+                    <option value="IcedTea">Iced Tea</option>
+                    <option value="GreenTea">GreenTea</option>
+                    <option value="ChaiTea">Chai Tea</option>
+                    <option value="VanillaItalianSoda">Vanilla Italian Soda</option>
+                    <option value="StrawberryItalianSoda">Strawberry Italian Soda</option>
+                    <option value="CherryItalianSoda">Cherry Italian Soda</option>
+                </select>
+                <span asp-validation-for="Drink.DrinkName" class="text-danger"></span>
+            </div>
+            @* Commented out DrinkType input form-group since Model/class business logic assigns
+                the DrinkType based upon which DrinkName is selected
+            *@
+            @* <div class="form-group">
+                <label asp-for="Drink.DrinkType" class="control-label"></label>
+                <input asp-for="Drink.DrinkType" class="form-control" /> *@
+                @* <select asp-for="Drink.DrinkType" class="form-control">
+                    <option value="">Select Drink Type</option>
+                    <option value="coffee">Coffee</option>
+                    <option value="tea">Tea</option>
+                    <option value="soda">Italian Soda</option>
+                </select> *@
+                @* <span asp-validation-for="Drink.DrinkType" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="Drink.DrinkSize" class="control-label"></label>
+                @* <input asp-for="Drink.DrinkSize" class="form-control" /> *@
+                <select asp-for="Drink.DrinkSize" class="form-control">
+                    <option value="">Select Drink Size</option>
+                    <option value="small">Small</option>
+                    <option value="regular">Regular</option>
+                    <option value="large">Large</option>
+                </select>
+                <span asp-validation-for="Drink.DrinkSize" class="text-danger"></span>
+            </div>
+            @* Commented out DrinkPrice input form-group since Model/class business logic assigns
+            the DrinkPrice based upon which DrinkName, DrinkSize is selected, and which DrinkType
+            is assigned. 
+            *@
+            @* <div class="form-group">
+                <label asp-for="Drink.DrinkPrice" class="control-label"></label>
+                <input asp-for="Drink.DrinkPrice" class="form-control" />
+                <span asp-validation-for="Drink.DrinkPrice" class="text-danger"></span>
+            </div> *@
+            @* move 'Back to List' button at bottom of page into below <div> element,
+            then add boostrap class="mt-2" - to add margin 2 to <div> to create space
+            between button and display area. Then use '&nbsp;' to add a spaces between
+            the two buttons. Add boostrap btn class/color to <a> element start tag. *@
+            <div class="form-group mt-2">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                &nbsp;&nbsp;<a asp-page="./Index" class="btn btn-success">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* move below div contents to above div in form *@
+@* <div>
+    <a asp-page="./Index">Back to List</a>
+</div> *@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

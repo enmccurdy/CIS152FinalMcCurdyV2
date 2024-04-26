@@ -1,0 +1,85 @@
+﻿@page
+@model DrinkShopWebApp2.Pages.Customers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Customer Index</h1>
+<hr />
+<p>
+    @* can add bootstrap 'btn'' class and coloring ex. 'btn-primary'' to the Create button below
+    just add to <a> start tag - class="btn btn-primary"
+    *@
+    <a asp-page="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer[0].Phone)
+            </th>
+            @* <th></th> *@
+            @* After wrapping below foreach block into an if block to deal w/
+            null reference situation/verify there is something in the DB
+            table to be displayed/bind. Add a 'Action' text into the
+            <th> table header element below for the 'Edit/Delete/Details' buttons.
+            *@
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @* Below foreach code - wrap it w/ an if statement before binding the data to check for
+        situation where there is no data to display - so may get a 'null reference'
+        exception. Condition checks that Customer is NOT null && if Customers contains 'Any' records,
+        then only should it do the foreach block to bind each row of the Customers table to
+        display each of the Customer objects/entities in it. Add else statement block to specify
+        what to should happen if no details to display from the DB Customer table.
+        <tr> - table row element, <td> - table data element,
+        *@
+        @if (Model.Customer != null && Model.Customer.Any())
+        {
+            @foreach (var item in Model.Customer)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Phone)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.CustomerId">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.CustomerId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+        @* Add else statement block to specify what to should happen if no details to display
+        from the DB Customers table. Since above would span 4 columns - using 'colspan="4"'
+        <tr> - table row element, <td> - table data element - add text to explain/display
+        message to user. *@
+        else
+        {
+            <tr>
+                <td colspan="4" class="text-center">No Customers in the database.</td>
+            </tr>
+        }
+    </tbody>
+</table>
